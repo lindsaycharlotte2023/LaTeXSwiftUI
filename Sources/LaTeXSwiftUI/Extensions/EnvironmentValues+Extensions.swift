@@ -27,125 +27,123 @@ import MathJaxSwift
 import SwiftUI
 
 private struct ImageRenderingModeKey: EnvironmentKey {
-  static let defaultValue: Image.TemplateRenderingMode = .template
+    static let defaultValue: Image.TemplateRenderingMode = .template
 }
 
 private struct ErrorModeKey: EnvironmentKey {
-  static let defaultValue: LaTeX.ErrorMode = .original
+    static let defaultValue: LaTeX.ErrorMode = .original
 }
 
 private struct UnencodeHTMLKey: EnvironmentKey {
-  static let defaultValue: Bool = false
+    static let defaultValue: Bool = false
 }
 
 private struct ParsingModeKey: EnvironmentKey {
-  static let defaultValue: LaTeX.ParsingMode = .onlyEquations
+    static let defaultValue: LaTeX.ParsingMode = .onlyEquations
 }
 
 private struct BlockModeKey: EnvironmentKey {
-  static let defaultValue: LaTeX.BlockMode = .blockViews
+    static let defaultValue: LaTeX.BlockMode = .blockViews
 }
 
 private struct ProcessEscapesKey: EnvironmentKey {
-  static let defaultValue: Bool = false
+    static let defaultValue: Bool = false
 }
 
 private struct EquationNumberModeKey: EnvironmentKey {
-  static let defaultValue: LaTeX.EquationNumberMode = .none
+    static let defaultValue: LaTeX.EquationNumberMode = .none
 }
 
 private struct EquationNumberStartKey: EnvironmentKey {
-  static let defaultValue: Int = 1
+    static let defaultValue: Int = 1
 }
 
 private struct EquationNumberOffsetKey: EnvironmentKey {
-  static let defaultValue: CGFloat = 0.0
+    static let defaultValue: CGFloat = 0.0
 }
 
 private struct FormatEquationNumberKey: EnvironmentKey {
-  static let defaultValue: LaTeX.FormatEquationNumber = { "(\($0))" }
+    static let defaultValue: LaTeX.FormatEquationNumber = { "(\($0))" }
 }
 
 private struct RenderingStyleKey: EnvironmentKey {
-  static let defaultValue: LaTeX.RenderingStyle = .wait
+    static let defaultValue: LaTeX.RenderingStyle = .wait
 }
 
 private struct RenderingAnimationKey: EnvironmentKey {
-  static let defaultValue: Animation? = .none
+    static let defaultValue: Animation? = .none
 }
 
 extension EnvironmentValues {
-  
-  /// The image rendering mode of this environment.
-  var imageRenderingMode: Image.TemplateRenderingMode {
-    get { self[ImageRenderingModeKey.self] }
-    set { self[ImageRenderingModeKey.self] = newValue }
-  }
-  
-  /// The error mode of this environment.
-  var errorMode: LaTeX.ErrorMode {
-    get { self[ErrorModeKey.self] }
-    set { self[ErrorModeKey.self] = newValue }
-  }
-  
-  /// The unencoded value of this environment.
-  var unencodeHTML: Bool {
-    get { self[UnencodeHTMLKey.self] }
-    set { self[UnencodeHTMLKey.self] = newValue }
-  }
-  
-  /// The parsing mode of this environment.
-  var parsingMode: LaTeX.ParsingMode {
-    get { self[ParsingModeKey.self] }
-    set { self[ParsingModeKey.self] = newValue }
-  }
-  
-  /// The block mode of this environment.
-  var blockMode: LaTeX.BlockMode {
-    get { self[BlockModeKey.self] }
-    set { self[BlockModeKey.self] = newValue }
-  }
-  
-  /// The processEscapes value of this environment.
-  var processEscapes: Bool {
-    get { self[ProcessEscapesKey.self] }
-    set { self[ProcessEscapesKey.self] = newValue }
-  }
-  
-  /// The equation number mode of this environment.
-  var equationNumberMode: LaTeX.EquationNumberMode {
-    get { self[EquationNumberModeKey.self] }
-    set { self[EquationNumberModeKey.self] = newValue }
-  }
-  
-  /// The equation starting number of this environment.
-  var equationNumberStart: Int {
-    get { self[EquationNumberStartKey.self] }
-    set { self[EquationNumberStartKey.self] = newValue }
-  }
-  
-  /// The equation number offset of this environment.
-  var equationNumberOffset: CGFloat {
-    get { self[EquationNumberOffsetKey.self] }
-    set { self[EquationNumberOffsetKey.self] = newValue }
-  }
-  
-  /// The closure used to format equation number before displaying them.
-  var formatEquationNumber: LaTeX.FormatEquationNumber {
-    get { self[FormatEquationNumberKey.self] }
-    set { self[FormatEquationNumberKey.self] = newValue }
-  }
-  
-  /// The rendering style of this environment.
-  var renderingStyle: LaTeX.RenderingStyle {
-    get { self[RenderingStyleKey.self] }
-    set { self[RenderingStyleKey.self] = newValue }
-  }
-  
-  /// Whether or not rendering should be animated.
-  var renderingAnimation: Animation? {
-    get { self[RenderingAnimationKey.self] }
-    set { self[RenderingAnimationKey.self] = newValue }
-  }
-  
+    /// The image rendering mode of this environment.
+    var imageRenderingMode: Image.TemplateRenderingMode {
+        get { self[ImageRenderingModeKey.self] }
+        set { self[ImageRenderingModeKey.self] = newValue }
+    }
+
+    /// The error mode of this environment.
+    var errorMode: LaTeX.ErrorMode {
+        get { self[ErrorModeKey.self] }
+        set { self[ErrorModeKey.self] = newValue }
+    }
+
+    /// The unencoded value of this environment.
+    var unencodeHTML: Bool {
+        get { self[UnencodeHTMLKey.self] }
+        set { self[UnencodeHTMLKey.self] = newValue }
+    }
+
+    /// The parsing mode of this environment.
+    var parsingMode: LaTeX.ParsingMode {
+        get { self[ParsingModeKey.self] }
+        set { self[ParsingModeKey.self] = newValue }
+    }
+
+    /// The block mode of this environment.
+    var blockMode: LaTeX.BlockMode {
+        get { self[BlockModeKey.self] }
+        set { self[BlockModeKey.self] = newValue }
+    }
+
+    /// The processEscapes value of this environment.
+    var processEscapes: Bool {
+        get { self[ProcessEscapesKey.self] }
+        set { self[ProcessEscapesKey.self] = newValue }
+    }
+
+    /// The equation number mode of this environment.
+    var equationNumberMode: LaTeX.EquationNumberMode {
+        get { self[EquationNumberModeKey.self] }
+        set { self[EquationNumberModeKey.self] = newValue }
+    }
+
+    /// The equation starting number of this environment.
+    var equationNumberStart: Int {
+        get { self[EquationNumberStartKey.self] }
+        set { self[EquationNumberStartKey.self] = newValue }
+    }
+
+    /// The equation number offset of this environment.
+    var equationNumberOffset: CGFloat {
+        get { self[EquationNumberOffsetKey.self] }
+        set { self[EquationNumberOffsetKey.self] = newValue }
+    }
+
+    /// The closure used to format equation number before displaying them.
+    var formatEquationNumber: LaTeX.FormatEquationNumber {
+        get { self[FormatEquationNumberKey.self] }
+        set { self[FormatEquationNumberKey.self] = newValue }
+    }
+
+    /// The rendering style of this environment.
+    var renderingStyle: LaTeX.RenderingStyle {
+        get { self[RenderingStyleKey.self] }
+        set { self[RenderingStyleKey.self] = newValue }
+    }
+
+    /// Whether or not rendering should be animated.
+    var renderingAnimation: Animation? {
+        get { self[RenderingAnimationKey.self] }
+        set { self[RenderingAnimationKey.self] = newValue }
+    }
 }

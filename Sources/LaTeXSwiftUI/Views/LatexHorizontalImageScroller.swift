@@ -1,5 +1,5 @@
 //
-//  StandardLaTeXStyle.swift
+//  HorizontalImageScroller.swift
 //  LaTeXSwiftUI
 //
 //  Copyright (c) 2023 Colin Campbell
@@ -25,25 +25,26 @@
 
 import SwiftUI
 
-/// A standard LaTeX view style with input unencoded, equations numbered, and
-/// a serif font.
-public struct StandardLaTeXStyle: LaTeXStyle {
-  
-  public func makeBody(content: LaTeX) -> some View {
-    content
-      .unencoded()
-      .equationNumberMode(.right)
-      .formatEquationNumber { n in
-        "(\(n))"
-      }
-  }
-  
-}
+/// A view that contains an image that can be scrolled horizontally.
+public struct LatexHorizontalImageScroller: View {
+    /// The image to display.
+    let image: Image
 
-extension LaTeXStyle where Self == StandardLaTeXStyle {
-  
-  /// A standard LaTeX view style with input unencoded, equations numbered, and
-  /// a serif font.
-  public static var standard: Self { Self() }
-  
+    /// The height of the image.
+    let height: CGFloat
+
+    /// Whether the scroll view should show its indicators.
+    var showsIndicators: Bool = false
+
+    // MARK: View body
+
+    public var body: some View {
+        GeometryReader { geometry in
+            ScrollView(.horizontal, showsIndicators: showsIndicators) {
+                HStack { image }
+                    .frame(minWidth: geometry.size.width)
+            }
+        }
+        .frame(height: height)
+    }
 }

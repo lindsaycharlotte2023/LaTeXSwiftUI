@@ -26,16 +26,14 @@
 import Foundation
 
 extension Range<String.Index> {
-  
-  /// Evaluates whether or not this range is a subrange of the given range.
-  ///
-  /// - Parameter range: The range this range is a subset of.
-  /// - Returns: Whether or not the receiver is a subset.
-  func isSubrange(of range: Self) -> Bool {
-    guard range.lowerBound != lowerBound || range.upperBound != upperBound else {
-      return false
+    /// Evaluates whether or not this range is a subrange of the given range.
+    ///
+    /// - Parameter range: The range this range is a subset of.
+    /// - Returns: Whether or not the receiver is a subset.
+    func isSubrange(of range: Self) -> Bool {
+        guard range.lowerBound != lowerBound || range.upperBound != upperBound else {
+            return false
+        }
+        return range.lowerBound <= lowerBound && upperBound <= range.upperBound
     }
-    return range.lowerBound <= lowerBound && upperBound <= range.upperBound
-  }
-  
 }

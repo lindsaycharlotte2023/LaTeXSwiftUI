@@ -1,5 +1,5 @@
 //
-//  HorizontalImageScroller.swift
+//  Aliases.swift
 //  LaTeXSwiftUI
 //
 //  Copyright (c) 2023 Colin Campbell
@@ -23,29 +23,18 @@
 //  IN THE SOFTWARE.
 //
 
-import SwiftUI
+import Foundation
 
-/// A view that contains an image that can be scrolled horizontally.
-internal struct HorizontalImageScroller: View {
-  
-  /// The image to display.
-  let image: Image
-  
-  /// The height of the image.
-  let height: CGFloat
-  
-  /// Whether the scroll view should show its indicators.
-  var showsIndicators: Bool = false
-  
-  // MARK: View body
-  
-  var body: some View {
-    GeometryReader { geometry in
-      ScrollView(.horizontal, showsIndicators: showsIndicators) {
-        HStack { image }
-          .frame(minWidth: geometry.size.width)
-      }
-    }
-    .frame(height: height)
-  }
-}
+#if os(iOS)
+import UIKit
+
+typealias _Image = UIImage
+typealias _Font = UIFont
+typealias _Color = UIColor
+#else
+import Cocoa
+
+typealias _Image = NSImage
+typealias _Font = NSFont
+typealias _Color = NSColor
+#endif

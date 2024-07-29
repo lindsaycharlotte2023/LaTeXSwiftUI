@@ -26,16 +26,13 @@
 import Foundation
 import MathJaxSwift
 
-internal extension MathJax {
-  
-  static var svgRenderer: MathJax? = {
-    do {
-      return try MathJax(preferredOutputFormat: .svg)
-    }
-    catch {
-      NSLog("Error creating MathJax instance: \(error)")
-      return nil
-    }
-  }()
-  
+extension MathJax {
+    static var svgRenderer: MathJax? = {
+        do {
+            return try MathJax(preferredOutputFormat: .svg)
+        } catch {
+            NSLog("Error creating MathJax instance: \(error)")
+            return nil
+        }
+    }()
 }

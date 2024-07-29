@@ -27,27 +27,25 @@ import Foundation
 import MathJaxSwift
 
 extension TeXInputProcessorOptions {
-  
-  /// Initializes a set of options with the correct properties set for rendering
-  /// a `LaTeX` view.
-  ///
-  /// - Parameters:
-  ///   - processEscapes: Whether or not escapes should be processed.
-  ///   - errorMode: The view's error mode.
-  convenience init(processEscapes: Bool, errorMode: LaTeX.ErrorMode) {
-    self.init()
-    self.processEscapes = processEscapes
-    
-    var packages = TeXInputProcessorOptions.Packages.all
-    if errorMode != .rendered {
-      if let noErrorsIndex = packages.firstIndex(of: TeXInputProcessorOptions.Packages.noerrors) {
-        packages.remove(at: noErrorsIndex)
-      }
-      if let noUndefinedIndex = packages.firstIndex(of: TeXInputProcessorOptions.Packages.noundefined) {
-        packages.remove(at: noUndefinedIndex)
-      }
+    /// Initializes a set of options with the correct properties set for rendering
+    /// a `LaTeX` view.
+    ///
+    /// - Parameters:
+    ///   - processEscapes: Whether or not escapes should be processed.
+    ///   - errorMode: The view's error mode.
+    convenience init(processEscapes: Bool, errorMode: LaTeX.ErrorMode) {
+        self.init()
+        self.processEscapes = processEscapes
+
+        var packages = TeXInputProcessorOptions.Packages.all
+        if errorMode != .rendered {
+            if let noErrorsIndex = packages.firstIndex(of: TeXInputProcessorOptions.Packages.noerrors) {
+                packages.remove(at: noErrorsIndex)
+            }
+            if let noUndefinedIndex = packages.firstIndex(of: TeXInputProcessorOptions.Packages.noundefined) {
+                packages.remove(at: noUndefinedIndex)
+            }
+        }
+        loadPackages = packages
     }
-    loadPackages = packages
-  }
-  
 }

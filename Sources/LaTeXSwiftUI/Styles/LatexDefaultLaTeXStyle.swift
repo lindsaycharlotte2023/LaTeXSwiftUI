@@ -1,5 +1,5 @@
 //
-//  Aliases.swift
+//  DefaultLaTeXStyle.swift
 //  LaTeXSwiftUI
 //
 //  Copyright (c) 2023 Colin Campbell
@@ -23,16 +23,17 @@
 //  IN THE SOFTWARE.
 //
 
-import Foundation
+import SwiftUI
 
-#if os(iOS)
-import UIKit
-internal typealias _Image = UIImage
-internal typealias _Font = UIFont
-internal typealias _Color = UIColor
-#else
-import Cocoa
-internal typealias _Image = NSImage
-internal typealias _Font = NSFont
-internal typealias _Color = NSColor
-#endif
+/// The default LaTeX view style.
+public struct LatexDefaultLaTeXStyle: LaTeXStyle {
+    public func makeBody(content: LaTeX) -> some View {
+        // Just return the view
+        content
+    }
+}
+
+public extension LaTeXStyle where Self == LatexDefaultLaTeXStyle {
+    /// The default LaTeX view style.
+    static var automatic: Self { Self() }
+}

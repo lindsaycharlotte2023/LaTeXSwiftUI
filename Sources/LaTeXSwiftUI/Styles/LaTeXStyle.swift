@@ -27,13 +27,12 @@ import SwiftUI
 
 /// A protocol that describes the appearance of a LaTeX view.
 public protocol LaTeXStyle {
-  
-  /// A view that represents a stylized LaTeX view.
-  associatedtype Body: View
-  
-  /// Creates a stylized LaTeX view.
-  ///
-  /// - Parameter content: The current LaTeX view.
-  /// - Returns: A stylized LaTeX view.
-  func makeBody(content: LaTeX) -> Body
+    /// A view that represents a stylized LaTeX view.
+    associatedtype Body: View
+
+    /// Creates a stylized LaTeX view.
+    ///
+    /// - Parameter content: The current LaTeX view.
+    /// - Returns: A stylized LaTeX view.
+    func makeBody(content: LaTeX) -> Body
 }

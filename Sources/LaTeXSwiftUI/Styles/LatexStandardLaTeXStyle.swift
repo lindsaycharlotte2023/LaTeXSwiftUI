@@ -1,5 +1,5 @@
 //
-//  DefaultLaTeXStyle.swift
+//  StandardLaTeXStyle.swift
 //  LaTeXSwiftUI
 //
 //  Copyright (c) 2023 Colin Campbell
@@ -25,19 +25,21 @@
 
 import SwiftUI
 
-/// The default LaTeX view style.
-public struct DefaultLaTeXStyle: LaTeXStyle {
-  
-  public func makeBody(content: LaTeX) -> some View {
-    // Just return the view
-    content
-  }
-  
+/// A standard LaTeX view style with input unencoded, equations numbered, and
+/// a serif font.
+public struct LatexStandardLaTeXStyle: LaTeXStyle {
+    public func makeBody(content: LaTeX) -> some View {
+        content
+            .unencoded()
+            .equationNumberMode(.right)
+            .formatEquationNumber { n in
+                "(\(n))"
+            }
+    }
 }
 
-extension LaTeXStyle where Self == DefaultLaTeXStyle {
-  
-  /// The default LaTeX view style.
-  public static var automatic: Self { Self() }
-  
+public extension LaTeXStyle where Self == LatexStandardLaTeXStyle {
+    /// A standard LaTeX view style with input unencoded, equations numbered, and
+    /// a serif font.
+    static var standard: Self { Self() }
 }

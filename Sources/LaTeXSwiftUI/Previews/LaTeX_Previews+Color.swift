@@ -26,45 +26,43 @@
 import SwiftUI
 
 struct LaTeX_Previews_Color: PreviewProvider {
-  
-  static var previews: some View {
-    VStack {
-      LaTeX("Hello, $\\LaTeX$!")
-        .font(.largeTitle)
-        .foregroundStyle(
-          LinearGradient(
-            colors: [.red, .orange, .yellow, .green, .blue, .indigo, .purple],
-            startPoint: .leading,
-            endPoint: .trailing
-          )
-        )
-      
-      LaTeX("Hello, $\\LaTeX$!")
-        .font(.title)
-        .foregroundColor(.red)
-      
-      LaTeX("Hello, $\\LaTeX$!")
-        .font(.title2)
-        .foregroundColor(.orange)
-      
-      LaTeX("Hello, $\\LaTeX$!")
-        .font(.title3)
-        .foregroundColor(.yellow)
-      
-      LaTeX("Hello, $\\LaTeX$!")
-        .font(.body)
-        .foregroundColor(.green)
-      
-      LaTeX("Hello, $\\LaTeX$!")
-        .font(.caption)
-        .foregroundColor(.indigo)
-      
-      LaTeX("Hello, $\\LaTeX$!")
-        .font(.caption2)
-        .foregroundColor(.purple)
+    static var previews: some View {
+        VStack {
+            LaTeX("Hello, $\\LaTeX$!")
+                .font(.largeTitle)
+                .foregroundStyle(
+                    LinearGradient(
+                        colors: [.red, .orange, .yellow, .green, .blue, .indigo, .purple],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                )
+
+            LaTeX("Hello, $\\LaTeX$!")
+                .font(.title)
+                .foregroundColor(.red)
+
+            LaTeX("Hello, $\\LaTeX$!")
+                .font(.title2)
+                .foregroundColor(.orange)
+
+            LaTeX("Hello, $\\LaTeX$!")
+                .font(.title3)
+                .foregroundColor(.yellow)
+
+            LaTeX("Hello, $\\LaTeX$!")
+                .font(.body)
+                .foregroundColor(.green)
+
+            LaTeX("Hello, $\\LaTeX$!")
+                .font(.caption)
+                .foregroundColor(.indigo)
+
+            LaTeX("Hello, $\\LaTeX$!")
+                .font(.caption2)
+                .foregroundColor(.purple)
+        }
+        .previewLayout(.sizeThatFits)
+        .previewDisplayName("Hello, LaTeX!")
     }
-    .previewLayout(.sizeThatFits)
-    .previewDisplayName("Hello, LaTeX!")
-  }
-  
 }

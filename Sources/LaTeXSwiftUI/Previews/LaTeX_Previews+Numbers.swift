@@ -26,24 +26,11 @@
 import SwiftUI
 
 struct LaTeX_Previews_Numbers: PreviewProvider {
-  
-  static var previews: some View {
-    VStack {
-      LaTeX("$$E = mc^2$$")
-        .equationNumberMode(.right)
-        .equationNumberOffset(10)
-        .padding([.bottom])
-      
-      LaTeX("\\begin{equation} E = mc^2 \\end{equation} \\begin{equation} E = mc^2 \\end{equation}")
-        .equationNumberMode(.right)
-        .equationNumberOffset(10)
-        .equationNumberStart(2)
+    static var previews: some View {
+        VStack {
+            LaTeX("$\\begin{pmatrix}a_{11} & a_{12} & a_{13} & a_{14} \\\\a_{21} & a_{22} & a_{23} & a_{24} \\\\a_{31} & a_{32} & a_{33} & a_{34} \\\\a_{41} & a_{42} & a_{43} & a_{44}\\end{pmatrix}$")
+        }
+        .previewLayout(.sizeThatFits)
+        .previewDisplayName("Equation Numbers")
     }
-    .previewLayout(.sizeThatFits)
-    .previewDisplayName("Equation Numbers")
-    .formatEquationNumber { n in
-      return "~[\(n)]~"
-    }
-  }
-  
 }

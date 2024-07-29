@@ -26,59 +26,57 @@
 import SwiftUI
 
 struct LaTeX_Previews_Modes: PreviewProvider {
-  
-  static var previews: some View {
-    VStack {
-      LaTeX("Hello, $\\color{blue}\\LaTeX$")
-        .imageRenderingMode(.original)
-      
-      LaTeX("Hello, $\\LaTeX$")
-        .imageRenderingMode(.template)
+    static var previews: some View {
+        VStack {
+            LaTeX("Hello, $\\color{blue}\\LaTeX$")
+                .imageRenderingMode(.original)
+
+            LaTeX("Hello, $\\LaTeX$")
+                .imageRenderingMode(.template)
+        }
+        .previewDisplayName("Image Rendering Mode")
+
+        VStack {
+            LaTeX("$\\asdf$")
+                .errorMode(.error)
+
+            LaTeX("$\\asdf$")
+                .errorMode(.original)
+
+            LaTeX("$\\asdf$")
+                .errorMode(.rendered)
+        }
+        .previewDisplayName("Error Mode")
+
+        VStack {
+            LaTeX("$x&lt;0$")
+                .errorMode(.error)
+
+            LaTeX("$x&lt;0$")
+                .unencoded()
+                .errorMode(.error)
+        }
+        .previewDisplayName("Unencoded")
+
+        VStack {
+            LaTeX("$a^2 + b^2 = c^2$")
+                .parsingMode(.onlyEquations)
+
+            LaTeX("a^2 + b^2 = c^2")
+                .parsingMode(.all)
+        }
+        .previewDisplayName("Parsing Mode")
+
+        VStack {
+            LaTeX("Equation 1: $$x = 3$$")
+                .blockMode(.blockViews)
+
+            LaTeX("Equation 1: $$x = 3$$")
+                .blockMode(.blockText)
+
+            LaTeX("Equation 1: $$x = 3$$")
+                .blockMode(.alwaysInline)
+        }
+        .previewDisplayName("Block Mode")
     }
-    .previewDisplayName("Image Rendering Mode")
-    
-    VStack {
-      LaTeX("$\\asdf$")
-        .errorMode(.error)
-      
-      LaTeX("$\\asdf$")
-        .errorMode(.original)
-      
-      LaTeX("$\\asdf$")
-        .errorMode(.rendered)
-    }
-    .previewDisplayName("Error Mode")
-    
-    VStack {
-      LaTeX("$x&lt;0$")
-        .errorMode(.error)
-      
-      LaTeX("$x&lt;0$")
-        .unencoded()
-        .errorMode(.error)
-    }
-    .previewDisplayName("Unencoded")
-    
-    VStack {
-      LaTeX("$a^2 + b^2 = c^2$")
-        .parsingMode(.onlyEquations)
-      
-      LaTeX("a^2 + b^2 = c^2")
-        .parsingMode(.all)
-    }
-    .previewDisplayName("Parsing Mode")
-    
-    VStack {
-      LaTeX("Equation 1: $$x = 3$$")
-        .blockMode(.blockViews)
-      
-      LaTeX("Equation 1: $$x = 3$$")
-        .blockMode(.blockText)
-      
-      LaTeX("Equation 1: $$x = 3$$")
-        .blockMode(.alwaysInline)
-    }
-    .previewDisplayName("Block Mode")
-  }
-  
 }
